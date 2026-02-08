@@ -1,4 +1,2 @@
-# backend:
-#   enabled: true
-# deployment:
-#   version: "1.0.0"
+deployment:
+  version: 1.0.0
