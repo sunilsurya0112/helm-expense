@@ -1,0 +1,5 @@
+apiVersion: v2
+name: backend # chart name 
+version: 1.0.0 # chart version
+description: This is backend deployment #(optional)
+appVersion: 1.0.0 # nginx app version(optional)
