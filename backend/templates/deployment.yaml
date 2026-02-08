@@ -28,5 +28,5 @@ spec:
         envFrom:
         - configMapRef:
             name: backend
-        ports:
-        - containerPort: 8080
+        # ports:
+        # - containerPort: 8080
