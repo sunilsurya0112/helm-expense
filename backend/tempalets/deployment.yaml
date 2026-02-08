@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: sunilmadha996/backend:{{ .Values.deployment.version | default "latest" }}
+        image: sunilmadha996/backend:1.0.0
         envFrom:
         - configMapRef:
             name: backend
