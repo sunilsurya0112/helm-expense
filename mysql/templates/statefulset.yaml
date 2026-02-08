@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mysql
+  namespace: expense
+spec:
+  selector:
+    matchLabels:
+        app: mysql
+        tier: db
+        project: expense
+  serviceName: "mysql-headless"
+  replicas: {{ .Values.statefulset.replicaes }} # by default is 1
+  minReadySeconds: 10 # by default is 0
+  template:
+    metadata:
+      labels:
+        app: mysql
+        tier: db
+        project: expense
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: mysql
+        image: sunilmadha996/mysql:{{ .Values.statefulset.imageversion }}
+        volumeMounts:
+        - name: mysql
+          mountPath: /var/lib/mysql
+# Instead of creating PVC resource, we can directly provide in statefel set          
+  volumeClaimTemplates:
+  - metadata:
+      name: mysql
+      namespace: expense
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: "ebs-sc"
+      resources:
+        requests:
+          storage: {{ .Values.statefulset.storage }}

@@ -1,0 +1,5 @@
+apiVersion: v2
+name: mysql # chart name 
+version: 1.0.0 # chart version
+description: This is mysql deployment #(optional)
+appVersion: 1.0.0 # nginx app version(optional)
